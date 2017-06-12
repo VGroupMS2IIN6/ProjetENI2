@@ -4,7 +4,7 @@ Class MenuAdmin01
 
 
     Public fenetread2 As New MenuAdmin02
-    Public NavigationService As New AccueilAdmin
+    'Public NavigationService As New AccueilAdmin
 
 
     Private Sub button201_Click(sender As Object, e As RoutedEventArgs) Handles button201.Click
@@ -29,11 +29,11 @@ Class MenuAdmin01
     End Sub
 
 
-    Private Sub Button205_Click(sender As Object, e As RoutedEventArgs) Handles Button205.Click
+    ' Private Sub Button205_Click(sender As Object, e As RoutedEventArgs) Handles Button205.Click
 
-        Me.NavigationService.Navigate(New Uri("01AcceuilAdmin.xaml", UriKind.Relative))
+    'Me.NavigationService.Navigate(New Uri("01AcceuilAdmin.xaml", UriKind.Relative))
 
-    End Sub
+    'End Sub
 
 
 

@@ -24,9 +24,7 @@
     End Sub
 
 
-    Friend Sub Navigate(uri As Uri)
-        Throw New NotImplementedException()
-    End Sub
+
 End Class
 
 
