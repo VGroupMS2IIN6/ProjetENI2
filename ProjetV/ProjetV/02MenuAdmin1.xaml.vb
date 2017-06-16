@@ -27,7 +27,7 @@ Class MenuAdmin01
 
     End Sub
 
+    Private Sub Button205_Click(sender As Object, e As RoutedEventArgs) Handles Button205.Click
 
-
-
+    End Sub
 End Class

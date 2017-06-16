@@ -16,11 +16,5 @@
         <TextBlock HorizontalAlignment="Left" Margin="496,327,0,0" TextWrapping="Wrap" Text="Sélectionnez un menu dans la colonne de gauche" VerticalAlignment="Top" Height="18" Width="270"></TextBlock>
         <Button x:Name="Button205" Content="Retour" HorizontalAlignment="Left" Margin="881,686,0,0" VerticalAlignment="Top" Width="75"/>
 
-        <!--<TextBlock>
-        <Hyperlink NavigateUri="00ApplicationMain.xaml">
-            <TextBlock x:Name="button205" Text="Retour" HorizontalAlignment="Left" Margin="899,700,0,0" VerticalAlignment="Top" Width="40" Height="19"/>
-        </Hyperlink>
-        </TextBlock>-->
-
     </Grid>
 </Window>
