@@ -54,6 +54,16 @@ ProjetV
   les recherches de ressources à l'aide de cette classe de ressource fortement typée.
 </summary>
 </member>
+<member name="T:ProjetV.csv">
+<summary>
+csv
+</summary>
+</member>
+<member name="M:ProjetV.csv.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:ProjetV.MenuAdmin01">
 <summary>
 MenuAdmin01

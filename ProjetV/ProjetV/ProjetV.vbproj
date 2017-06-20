@@ -88,6 +88,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="01csv01.xaml.vb">
+      <DependentUpon>01csv01.xaml</DependentUpon>
+    </Compile>
     <Compile Include="02MenuAdmin1.xaml.vb">
       <DependentUpon>02MenuAdmin1.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
       <DependentUpon>01AccueilAdmin.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="01csv01.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="02MenuAdmin1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
