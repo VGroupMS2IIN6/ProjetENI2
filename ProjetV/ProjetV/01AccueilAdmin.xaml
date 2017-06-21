@@ -16,7 +16,9 @@
         <Button x:Name="Button03" Content="Rénitialisation MDP" HorizontalAlignment="Left" Margin="382,36,0,0" VerticalAlignment="Top" Width="133" Height="63"/>
         <Button x:Name="Button04" Content="Historique" HorizontalAlignment="Left" Margin="535,36,0,0" VerticalAlignment="Top" Width="137" Height="63"/>
         <Button x:Name="Button05" Content="Gestion des formations" HorizontalAlignment="Left" Margin="692,36,0,0" VerticalAlignment="Top" Height="63" Width="135" />
-        <Button x:Name="Button06" Content="Paramétrage" HorizontalAlignment="Left" Margin="847,36,0,0" VerticalAlignment="Top" Width="134" Height="63" />
+        <Button x:Name="Button06" Content="Paramétrage" HorizontalAlignment="Left" Margin="847,36,0,0" VerticalAlignment="Top" Width="134" Height="63"/>
+        
+        
         <ScrollViewer HorizontalAlignment="Left" Height="409" Margin="69,189,0,0" VerticalAlignment="Top" Width="898"/>
         <Label x:Name="label01" Content="Dernière activité" HorizontalAlignment="Left" Margin="69,158,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button07" Content="A propos" HorizontalAlignment="Left" Margin="60,639,0,0" VerticalAlignment="Top" Width="117" Height="47"/>

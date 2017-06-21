@@ -2,15 +2,15 @@
 
 
     Public fenetreabout As New AboutBox1
-    Public fenetread1 As New MenuAdmin01
+    Public fenetremdp As New mdpadmin
     Public fenetrecsv As New csv
 
 
     Public Sub Button06_Click(sender As Object, e As RoutedEventArgs) Handles Button06.Click
 
-        'MessageBox.Show("")
+
         Hide()
-        fenetread1.Show()
+        fenetremdp.Show()
 
     End Sub
 

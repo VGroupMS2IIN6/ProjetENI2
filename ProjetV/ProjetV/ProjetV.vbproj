@@ -103,6 +103,9 @@
     <Compile Include="02MenuAdmin3.xaml.vb">
       <DependentUpon>02MenuAdmin3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="mdpadmin.xaml.vb">
+      <DependentUpon>mdpadmin.xaml</DependentUpon>
+    </Compile>
     <Page Include="01AccueilAdmin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,6 +139,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="02MenuAdmin3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mdpadmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
