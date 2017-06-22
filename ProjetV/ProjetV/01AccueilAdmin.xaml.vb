@@ -3,10 +3,10 @@
 
     Public fenetreabout As New AboutBox1
     Public fenetremdp As New mdpadmin
-    Public fenetrecsv As New csv
+    Public fenetrecsv As New csv01
 
 
-    Public Sub Button06_Click(sender As Object, e As RoutedEventArgs) Handles Button06.Click
+    Private Sub Button06_Click(sender As Object, e As RoutedEventArgs) Handles Button06.Click
 
 
         Hide()

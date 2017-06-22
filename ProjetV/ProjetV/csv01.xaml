@@ -27,7 +27,7 @@
 
                 <!--Ceci représente le XAML pour le premier bouton, la commande associé et les sous contenue associé, par exemple pour affiché le texte en surbrillance en gras, ect-->
                 <!--<Button Name="btnOpen" Click="btnOpen_Click">autre methode-->
-                <Button Name="btnOpen" Click="btnOpen_Click">
+                <Button Name="btnOpen" Click="btnOpen_Click" Margin="0,2,0,2.333" VerticalAlignment="Stretch">
                     <Button.Content>
                         <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\folder.png" Width="35" Height="43" RenderTransformOrigin="0.5,0.593" />
                     </Button.Content>
