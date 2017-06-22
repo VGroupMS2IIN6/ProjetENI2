@@ -1,9 +1,10 @@
 ﻿Class AccueilAdmin
 
 
-    Public fenetreabout As New AboutBox1
+
     Public fenetremdp As New mdpadmin
     Public fenetrecsv As New csv01
+    Public AboutBox As New AboutBox1
 
 
     Private Sub Button06_Click(sender As Object, e As RoutedEventArgs) Handles Button06.Click
@@ -19,14 +20,16 @@
         '------------------------------------------------------------------------------------
         '---------------------------------------------A PROPOS----------------------------------
 
-        MessageBox.Show("")
-        fenetreabout.Show()
+        AboutBox.Show()
+
 
     End Sub
 
     Private Sub Button01_Click(sender As Object, e As RoutedEventArgs) Handles Button01.Click
+
         Hide()
         fenetrecsv.Show()
+
     End Sub
 End Class
 

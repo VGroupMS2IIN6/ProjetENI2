@@ -8,7 +8,7 @@
         Title="Application de création de comptes stagiaires - csv" Height="768" Width="1024">
 
     <!--a tester
-    Autre méthode
+    Autre méthode Attention cette méthode n'est pas a utilisé avec la méthode actuelle des Click
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
@@ -62,7 +62,7 @@
                     <Button.ToolTip>
                         <StackPanel>
 
-                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">REnregistrer</TextBlock>
+                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Enregistrer</TextBlock>
                             <TextBlock>
                                     Enregistrer un .csv sur votre ordinateur ou sur le réseau
                             </TextBlock>
@@ -77,9 +77,9 @@
                 <Separator />
 
 
-                <!--Ceci permet de créer un le bouton pour mettre en texte en gras
-                <ToggleButton Name="btnBold" Click="btnBold_Click">
-                    <Button>
+
+                
+                    <Button Name="btnBold" Click="btnBold_Click">
                         <Button.Content>
                             <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\bold.png" Width="35" Height="43" />
                         </Button.Content>
@@ -92,12 +92,9 @@
                             </StackPanel>
                         </Button.ToolTip>
                     </Button>
-                </ToggleButton>-->
-
-
-                <!--Ceci permet de créer un le bouton pour mettre en texte en italique
-                <ToggleButton Name="btnItalic" Click="btnItalic_Click">
-                    <Button>
+                            
+                
+                    <Button Name="btnItalic" Click="btnItalic_Click">
                         <Button.Content>
                             <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\italic.png" Width="35" Height="43" />
                         </Button.Content>
@@ -110,12 +107,9 @@
                             </StackPanel>
                         </Button.ToolTip>
                     </Button>
-                </ToggleButton>-->
-
-
-                <!--Ceci permet de créer un le bouton pour souligner du texte
-                <ToggleButton Name="btnUnderline" Click="btnUnderline_Click">
-                    <Button>
+                
+                
+                    <Button Name="btnUnderline" Click="btnUnderline_Click">
                         <Button.Content>
                             <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\Underline.png" Width="35" Height="43" />
                         </Button.Content>
@@ -128,7 +122,7 @@
                             </StackPanel>
                         </Button.ToolTip>
                     </Button>
-                </ToggleButton>-->
+                 
 
 
                 <Separator />
@@ -136,20 +130,18 @@
                 <Separator />
 
 
-
-                <!--<ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
-                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />-->
-
+                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
+                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
 
 
             </ToolBar>
 
-            <!--<RichTextBox Name="Editor" SelectionChanged="Editor_SelectionChanged" Width="1028" />-->
-            
-            <TextBox />
-            
+         <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" Width="1028" />
 
-        </DockPanel>
+
+
+
+       </DockPanel>
 
     </Grid>
 </Window>

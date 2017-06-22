@@ -24,6 +24,7 @@
         <Button x:Name="button07" Content="A propos" HorizontalAlignment="Left" Margin="60,639,0,0" VerticalAlignment="Top" Width="117" Height="47"/>
         
     </Grid>
+    
 </Window>
 
 
