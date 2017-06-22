@@ -9,18 +9,18 @@ Imports Microsoft.Win32
 Imports System.Windows.Controls
 
 
-Namespace ProjetV.Rich_text_controls
+Namespace ProjetV
 
     Public Class RichTextEditorSample
         Inherits Window
 
         Public Property Editor As Object
 
-        '        Public Sub New()
+        '       Public Sub New()
         '       MyBase.New
-        '          InitializeComponent
-        '         cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(() >= {}, f.Source)
-        '        cmbFontSize.ItemsSource = New List(Of Double)
+        '       InitializeComponent
+        '       cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(() >= {}, f.Source)
+        '       cmbFontSize.ItemsSource = New List(Of Double)
         '   End Sub
 
         'Private Sub rtbEditor_SelectionChanged(ByVal sender As Object, ByVal e As RoutedEventArgs)
@@ -39,40 +39,43 @@ Namespace ProjetV.Rich_text_controls
         'cmbFontSize.Text = temp.ToString
         'End Sub
 
-        Private Sub Open_Executed(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs)
+
+        'Filtre pour rechercher les csv plus facilement - stream en reel et appel de windows
+        Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs)
             Dim dlg As OpenFileDialog = New OpenFileDialog
             dlg.Filter = "Comma separated values (*.csv)|*.csv|All files (*.*)|*.*"
             If (dlg.ShowDialog = True) Then
                 Dim fileStream As FileStream = New FileStream(dlg.FileName, FileMode.Open)
                 Dim range As TextRange = New TextRange(Editor.Document.ContentStart, Editor.Document.ContentEnd)
-                range.Load(fileStream, DataFormats.Rtf)
+                range.Load(fileStream, DataFormats.CommaSeparatedValue)
             End If
 
         End Sub
 
-        Private Sub Save_Executed(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs)
+        Private Sub btnSave_Click(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs)
             Dim dlg As SaveFileDialog = New SaveFileDialog
             dlg.Filter = "Rich Text Format (*.csv)|*.csv|All files (*.*)|*.*"
             If (dlg.ShowDialog = True) Then
                 Dim fileStream As FileStream = New FileStream(dlg.FileName, FileMode.Create)
                 Dim range As TextRange = New TextRange(Editor.Document.ContentStart, Editor.Document.ContentEnd)
-                range.Save(fileStream, DataFormats.Rtf)
+                range.Save(fileStream, DataFormats.CommaSeparatedValue)
             End If
 
         End Sub
 
         'Private Sub cmbFontFamily_SelectionChanged(ByVal sender As Object, ByVal e As SelectionChangedEventArgs)
         'If (Not (cmbFontFamily.SelectedItem) Is Nothing) Then
-        '    Editor.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, cmbFontFamily.SelectedItem)
+        'Editor.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, cmbFontFamily.SelectedItem)
         'End If
 
         '  End Sub
 
         'Private Sub cmbFontSize_TextChanged(ByVal sender As Object, ByVal e As TextChangedEventArgs)
-        '   Editor.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.Text)
+        'Editor.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.Text)
         'End Sub
     End Class
 End Namespace
+
 
 
 

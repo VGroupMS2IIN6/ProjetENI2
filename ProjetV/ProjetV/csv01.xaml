@@ -1,4 +1,4 @@
-﻿<Window x:Class="csv"
+﻿<Window x:Class="csv01"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,13 +7,16 @@
         mc:Ignorable="d"
         Title="Application de création de comptes stagiaires - csv" Height="768" Width="1024">
 
+    <!--a tester
+    Autre méthode
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
     </Window.CommandBindings>
-
+    
+    -->
     <Grid Margin="0,0,-20.667,-29.333">
-        
+
         <!--Permet de définir une zone dans laquelle vous pouvez réoganiser des éléments enfants-->
         <DockPanel>
 
@@ -24,9 +27,9 @@
 
                 <!--Ceci représente le XAML pour le premier bouton, la commande associé et les sous contenue associé, par exemple pour affiché le texte en surbrillance en gras, ect-->
                 <!--<Button Name="btnOpen" Click="btnOpen_Click">autre methode-->
-                <Button Command="ApplicationCommands.Open">
+                <Button Name="btnOpen" Click="btnOpen_Click">
                     <Button.Content>
-                        <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\folder.png" Width="35" Height="43" />
+                        <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\folder.png" Width="35" Height="43" RenderTransformOrigin="0.5,0.593" />
                     </Button.Content>
                     <Button.ToolTip>
                         <!--L'avantage du ToolType property, c'est que c'est un type d'objet donc on peut mettre ce que l'on veut à l'intérieur...attention par par contre à utiliser cette propriété comme objet du boutton et non pas comme propriété CAR il ne peut exister plusieurs propriété ToolTip dans un DockPanal...Bref...-->
@@ -50,11 +53,11 @@
                 </Button>
 
                 <!--Ceci représente le XAML pour le second bouton, la commande associé et les sous contenue associé, par exemple pour affiché le texte en surbrillance en gras, ect-->
-                <!--<Button Name="btnSave" Click="btnSave_Click">autre méthode-->
-                <Button Command="ApplicationCommands.Save">
+                <!--<Button Command="ApplicationCommands.Save">autre méthode-->
+                <Button Name="btnSave" Click="btnSave_Click">
 
                     <Button.Content>
-                        <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\save.jpg" Width="38" Height="47" />
+                        <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\save.jpg" Width="38" Height="47" RenderTransformOrigin="0.5,0.592" />
                     </Button.Content>
                     <Button.ToolTip>
                         <StackPanel>

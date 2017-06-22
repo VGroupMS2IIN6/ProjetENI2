@@ -100,11 +100,11 @@
     <Compile Include="02MenuAdmin3.xaml.vb">
       <DependentUpon>02MenuAdmin3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="csv01.xaml.vb">
+      <DependentUpon>csv01.xaml</DependentUpon>
+    </Compile>
     <Compile Include="mdpadmin.xaml.vb">
       <DependentUpon>mdpadmin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="01csv.xaml.vb">
-      <DependentUpon>01csv.xaml</DependentUpon>
     </Compile>
     <Page Include="01AccueilAdmin.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -138,11 +138,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="mdpadmin.xaml">
+    <Page Include="csv01.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="01csv.xaml">
+    <Page Include="mdpadmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
