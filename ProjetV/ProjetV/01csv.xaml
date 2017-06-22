@@ -7,19 +7,24 @@
         mc:Ignorable="d"
         Title="Application de création de comptes stagiaires - csv" Height="768" Width="1024">
 
-
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
+    </Window.CommandBindings>
 
     <Grid Margin="0,0,-20.667,-29.333">
+        
         <!--Permet de définir une zone dans laquelle vous pouvez réoganiser des éléments enfants-->
         <DockPanel>
 
 
             <!--Ceci représente la toolbar-->
-            <ToolBar DockPanel.Dock="Top">
+            <ToolBar DockPanel.Dock="Top" Margin="0,0,10,0">
 
 
                 <!--Ceci représente le XAML pour le premier bouton, la commande associé et les sous contenue associé, par exemple pour affiché le texte en surbrillance en gras, ect-->
-                <Button Name="btnOpen" Click="btnOpen_Click">
+                <!--<Button Name="btnOpen" Click="btnOpen_Click">autre methode-->
+                <Button Command="ApplicationCommands.Open">
                     <Button.Content>
                         <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\folder.png" Width="35" Height="43" />
                     </Button.Content>
@@ -45,7 +50,8 @@
                 </Button>
 
                 <!--Ceci représente le XAML pour le second bouton, la commande associé et les sous contenue associé, par exemple pour affiché le texte en surbrillance en gras, ect-->
-                <Button Name="btnSave" Click="btnSave_Click">
+                <!--<Button Name="btnSave" Click="btnSave_Click">autre méthode-->
+                <Button Command="ApplicationCommands.Save">
 
                     <Button.Content>
                         <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\save.jpg" Width="38" Height="47" />
@@ -135,7 +141,7 @@
 
             </ToolBar>
 
-            <RichTextBox Name="Editeur" SelectionChanged="Editeur_SelectionChanged" />
+            <RichTextBox Name="Editor" SelectionChanged="Editor_SelectionChanged" Width="1028" />
 
         </DockPanel>
 
