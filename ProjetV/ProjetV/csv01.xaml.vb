@@ -3,6 +3,7 @@ Imports Microsoft.Win32
 
 
 Class csv01
+    Public Property Editor As Object
 
     '       Public Sub New()
     '       MyBase.New

@@ -77,7 +77,7 @@
                 <Separator />
 
 
-                <!--Ceci permet de créer un le bouton pour mettre en texte en gras-->
+                <!--Ceci permet de créer un le bouton pour mettre en texte en gras
                 <ToggleButton Name="btnBold" Click="btnBold_Click">
                     <Button>
                         <Button.Content>
@@ -92,10 +92,10 @@
                             </StackPanel>
                         </Button.ToolTip>
                     </Button>
-                </ToggleButton>
+                </ToggleButton>-->
 
 
-                <!--Ceci permet de créer un le bouton pour mettre en texte en italique-->
+                <!--Ceci permet de créer un le bouton pour mettre en texte en italique
                 <ToggleButton Name="btnItalic" Click="btnItalic_Click">
                     <Button>
                         <Button.Content>
@@ -110,10 +110,10 @@
                             </StackPanel>
                         </Button.ToolTip>
                     </Button>
-                </ToggleButton>
+                </ToggleButton>-->
 
 
-                <!--Ceci permet de créer un le bouton pour souligner du texte-->
+                <!--Ceci permet de créer un le bouton pour souligner du texte
                 <ToggleButton Name="btnUnderline" Click="btnUnderline_Click">
                     <Button>
                         <Button.Content>
@@ -128,7 +128,7 @@
                             </StackPanel>
                         </Button.ToolTip>
                     </Button>
-                </ToggleButton>
+                </ToggleButton>-->
 
 
                 <Separator />
@@ -137,14 +137,17 @@
 
 
 
-                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
-                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+                <!--<ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
+                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />-->
 
 
 
             </ToolBar>
 
-            <RichTextBox Name="Editor" SelectionChanged="Editor_SelectionChanged" Width="1028" />
+            <!--<RichTextBox Name="Editor" SelectionChanged="Editor_SelectionChanged" Width="1028" />-->
+            
+            <TextBox />
+            
 
         </DockPanel>
 
