@@ -2,7 +2,7 @@
 
 
 
-    Public fenetremdp As New mdpadmin
+    Public menuadmin As New MenuAdmin01
     Public fenetrecsv As New csv01
     Public AboutBox As New AboutBox1
 
@@ -11,7 +11,7 @@
 
 
         Hide()
-        fenetremdp.Show()
+        menuadmin.Show()
 
     End Sub
 

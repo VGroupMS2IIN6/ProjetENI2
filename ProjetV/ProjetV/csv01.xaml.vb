@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports Microsoft.Win32
+Imports System.Windows.Controls
+Imports System.Windows.Documents
 
 
 Class csv01
@@ -56,11 +58,29 @@ Class csv01
         Throw New NotImplementedException()
     End Sub
 
+
+
     Private Sub cmbFontFamily_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
         Throw New NotImplementedException()
     End Sub
 
     Private Sub cmbFontSize_TextChanged(sender As Object, e As TextChangedEventArgs)
+        Throw New NotImplementedException()
+    End Sub
+
+    Private Sub btnGetText_Click(sender As Object, e As RoutedEventArgs)
+        Throw New NotImplementedException()
+    End Sub
+
+    Private Sub btnSetText_Click(sender As Object, e As RoutedEventArgs)
+        Throw New NotImplementedException()
+    End Sub
+
+    Private Sub btnGetSelectedText_Click(sender As Object, e As RoutedEventArgs)
+        Throw New NotImplementedException()
+    End Sub
+
+    Private Sub btnSetSelectedText_Click(sender As Object, e As RoutedEventArgs)
         Throw New NotImplementedException()
     End Sub
 End Class
