@@ -7,14 +7,7 @@
         mc:Ignorable="d"
         Title="Application de création de comptes stagiaires - csv" Height="768" Width="1024">
 
-    <!--a tester
-    Autre méthode Attention cette méthode n'est pas a utilisé avec la méthode actuelle des Click
-    <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
-        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
-    </Window.CommandBindings>
     
-    -->
     
     <Grid Margin="0,0,-20.667,-29.333">
 
@@ -139,11 +132,10 @@
                         </Button.Content>
                         <Button.ToolTip>
                             <StackPanel>
-                                <TextBlock>
+                            <TextBlock>
                                     Mettre en gras
-                                </TextBlock>
-
-                            </StackPanel>
+                            </TextBlock>
+                        </StackPanel>
                         </Button.ToolTip>
                     </Button>
                             
