@@ -13,7 +13,7 @@ Class csv01
 
     Private Sub rtbEditor_SelectionChanged(ByVal sender As Object, ByVal e As RoutedEventArgs)
 
-        'Dim temp As Object = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty)
+        Dim temp As Object = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty)
         'btnBold.IsChecked = ((temp <> DependencyProperty.UnsetValue) _
         'AndAlso temp.Equals(FontWeights.Bold))
         ' temp = rtbEditor.Selection.GetPropertyValue(Inline.FontStyleProperty)
@@ -27,7 +27,7 @@ Class csv01
         'temp = rtbEditor.Selection.GetPropertyValue(Inline.FontSizeProperty)
         'cmbFontSize.Text = temp.ToString
 
-        '
+
     End Sub
 
 
