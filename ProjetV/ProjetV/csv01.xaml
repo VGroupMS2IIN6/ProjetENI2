@@ -71,59 +71,6 @@
                 <Separator />
 
 
-                <Button Name="btnGetText" Click="btnGetText_Click">Copier
-                    <Button.ToolTip>
-                        <StackPanel>
-
-                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Get Text</TextBlock>
-
-                        </StackPanel>
-                    </Button.ToolTip>
-                    </Button>
-
-                <Separator />
-
-                <Button Name="btnSetText" Click="btnSetText_Click">Coller
-                    <Button.ToolTip>
-                    <StackPanel>
-
-                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Set Text</TextBlock>
-
-                    </StackPanel>
-                </Button.ToolTip>
-                </Button>
-
-                <Separator />
-
-                <Button Name="btnGetSelectedText" Click="btnGetSelectedText_Click">sel. text
-
-                    <Button.ToolTip>
-                        <StackPanel>
-
-                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Selection</TextBlock>
-
-                        </StackPanel>
-                    </Button.ToolTip>
-                </Button>
-
-                <Separator />
-                
-
-                <Button Name="btnSetSelectedText" Click="btnSetSelectedText_Click">Replace sel. text
-                    <Button.ToolTip>
-                        <StackPanel>
-
-                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Remplacement</TextBlock>
-
-                        </StackPanel>
-                    </Button.ToolTip>
-                </Button>
-
-
-                
-                <Separator />
-                <Separator />
-                <Separator />
 
                 
                     <Button Name="btnBold" Click="btnBold_Click">

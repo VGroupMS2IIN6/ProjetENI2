@@ -1,10 +1,4 @@
-﻿Imports System.IO
-Imports System.Windows.Forms
-Imports System.Windows
-Imports System
-Imports System.Windows.Input
-Imports System.Windows.Media
-
+﻿
 
 
 Class csv01
@@ -13,7 +7,7 @@ Class csv01
 
     Private Sub rtbEditor_SelectionChanged(ByVal sender As Object, ByVal e As RoutedEventArgs)
 
-        Dim temp As Object = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty)
+        'Dim temp As Object = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty)
         'btnBold.IsChecked = ((temp <> DependencyProperty.UnsetValue) _
         'AndAlso temp.Equals(FontWeights.Bold))
         ' temp = rtbEditor.Selection.GetPropertyValue(Inline.FontStyleProperty)
@@ -33,31 +27,40 @@ Class csv01
 
     'Filtre pour rechercher les csv plus facilement - stream en reel et appel de windows
 
-    Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs) Handles btnOpen.Click
+    Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
 
-        Dim dlg As Microsoft.Win32.OpenFileDialog = New Microsoft.Win32.OpenFileDialog
+        Dim dlg As New Microsoft.Win32.OpenFileDialog()
+        dlg.Filter = "CommaSeparatedValue|*.csv"
+        dlg.Title = "Select a Cursor File"
 
-        If (dlg.ShowDialog = True) Then
-            Dim fileStream As FileStream = New FileStream(dlg.FileName, FileMode.Open)
-            Dim range As TextRange = New TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd)
-            range.Load(fileStream, Windows.DataFormats.CommaSeparatedValue)
-
+        ' Show the Dialog.  
+        ' If the user clicked OK in the dialog and   
+        ' a .CUR file was selected, open it.  
+        If dlg.ShowDialog() = Forms.DialogResult.OK Then
+            ' Assign the cursor in the Stream to the Form's Cursor property.  
+            Me.Cursor = New Cursor(dlg.OpenFile)
         End If
 
-        ' ou Process.Start("c:\")
+        ' OU 
+        ' If dlg.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+        'Dim sr As New System.IO.StreamReader(dlg.FileName)
+        'MessageBox.Show(sr.ReadToEnd)
+        'SR.Close()
+        'End If
+
 
     End Sub
 
 
 
     Private Sub btnSave_Click(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs) Handles btnSave.Click
-        Dim dlg As Microsoft.Win32.SaveFileDialog = New Microsoft.Win32.SaveFileDialog
-        dlg.Filter = "Comma separated values (*.csv)|*.csv|All files (*.*)|*.*"
-        If (dlg.ShowDialog = True) Then
-            Dim fileStream As FileStream = New FileStream(dlg.FileName, FileMode.Create)
-            Dim range As TextRange = New TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd)
-            range.Save(fileStream, Windows.DataFormats.CommaSeparatedValue)
-        End If
+        'Dim dlg As Microsoft.Win32.SaveFileDialog = New Microsoft.Win32.SaveFileDialog
+        'dlg.Filter = "Comma separated values (*.csv)|*.csv|All files (*.*)|*.*"
+        'If (dlg.ShowDialog = True) Then
+        ' Dim fileStream As FileStream = New FileStream(dlg.FileName, FileMode.Create)
+        '  Dim range As TextRange = New TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd)
+        '   range.Save(fileStream, Windows.DataFormats.CommaSeparatedValue)
+        'End If
 
     End Sub
 
@@ -87,23 +90,7 @@ Class csv01
         Throw New NotImplementedException()
     End Sub
 
-    Private Sub btnGetText_Click(sender As Object, e As RoutedEventArgs)
-        Dim textRange As TextRange = New TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd)
-        Windows.MessageBox.Show(textRange.Text)
-    End Sub
 
-    Private Sub btnSetText_Click(sender As Object, e As RoutedEventArgs)
-        Dim textRange As TextRange = New TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd)
-        textRange.Text = "Another world, another text!"
-    End Sub
-
-    Private Sub btnGetSelectedText_Click(sender As Object, e As RoutedEventArgs)
-        Windows.MessageBox.Show(rtbEditor.Selection.Text)
-    End Sub
-
-    Private Sub btnSetSelectedText_Click(sender As Object, e As RoutedEventArgs)
-        rtbEditor.Selection.Text = "[Replaced text]"
-    End Sub
 
 
 End Class
