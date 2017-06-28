@@ -1,9 +1,8 @@
 ﻿
 
-
+Imports System.IO
 Class csv01
-
-
+    Public Property OpenFileDialog As Object
 
     Private Sub rtbEditor_SelectionChanged(ByVal sender As Object, ByVal e As RoutedEventArgs)
 
@@ -29,38 +28,32 @@ Class csv01
 
     Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
 
+        ' Configure open file dialog box
         Dim dlg As New Microsoft.Win32.OpenFileDialog()
-        dlg.Filter = "CommaSeparatedValue|*.csv"
-        dlg.Title = "Select a Cursor File"
 
-        ' Show the Dialog.  
-        ' If the user clicked OK in the dialog and   
-        ' a .CUR file was selected, open it.  
-        If dlg.ShowDialog() = Forms.DialogResult.OK Then
-            ' Assign the cursor in the Stream to the Form's Cursor property.  
-            Me.Cursor = New Cursor(dlg.OpenFile)
+        dlg.DefaultExt = ".csv" ' Default file extension
+        dlg.Filter = "Comma separated values (*.csv)|*.csv|All files (*.*)|*.*"
+        dlg.InitialDirectory = "c:\"
+
+        ' Show open file dialog box
+        Dim result As Boolean = dlg.ShowDialog()
+
+        ' Process open file dialog box results
+
+        If (dlg.ShowDialog = True) Then
+
+            File.ReadAllText(OpenFileDialog.Filename)
+
         End If
-
-        ' OU 
-        ' If dlg.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-        'Dim sr As New System.IO.StreamReader(dlg.FileName)
-        'MessageBox.Show(sr.ReadToEnd)
-        'SR.Close()
-        'End If
-
-
     End Sub
 
 
 
+
     Private Sub btnSave_Click(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs) Handles btnSave.Click
-        'Dim dlg As Microsoft.Win32.SaveFileDialog = New Microsoft.Win32.SaveFileDialog
-        'dlg.Filter = "Comma separated values (*.csv)|*.csv|All files (*.*)|*.*"
-        'If (dlg.ShowDialog = True) Then
-        ' Dim fileStream As FileStream = New FileStream(dlg.FileName, FileMode.Create)
-        '  Dim range As TextRange = New TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd)
-        '   range.Save(fileStream, Windows.DataFormats.CommaSeparatedValue)
-        'End If
+
+
+
 
     End Sub
 
