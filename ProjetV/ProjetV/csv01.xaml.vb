@@ -1,8 +1,10 @@
 ﻿
-
 Imports System.IO
-Class csv01
-    Public Property OpenFileDialog As Object
+
+
+Public Class csv01
+
+
 
     Private Sub rtbEditor_SelectionChanged(ByVal sender As Object, ByVal e As RoutedEventArgs)
 
@@ -26,32 +28,29 @@ Class csv01
 
     'Filtre pour rechercher les csv plus facilement - stream en reel et appel de windows
 
-    Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
+    Public Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
+
 
         ' Configure open file dialog box
         Dim dlg As New Microsoft.Win32.OpenFileDialog()
 
-        dlg.DefaultExt = ".csv" ' Default file extension
-        dlg.Filter = "Comma separated values (*.csv)|*.csv|All files (*.*)|*.*"
-        dlg.InitialDirectory = "c:\"
 
-        ' Show open file dialog box
+        dlg.Filter = "Comma separated values (*.csv)|*.csv|All files (*.*)|*.*"
+        dlg.InitialDirectory = "C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\csv"
+
+
         Dim result As Boolean = dlg.ShowDialog()
 
-        ' Process open file dialog box results
-
         If (dlg.ShowDialog = True) Then
-
-            File.ReadAllText(OpenFileDialog.Filename)
-
+            File.Open("C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\csv\test", FileMode.Open, FileAccess.ReadWrite)
         End If
     End Sub
 
 
 
 
-    Private Sub btnSave_Click(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs) Handles btnSave.Click
 
+    Private Sub btnSave_Click(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs) Handles btnSave.Click
 
 
 
