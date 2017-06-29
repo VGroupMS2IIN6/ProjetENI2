@@ -19,7 +19,7 @@ Public Class csv01
     'Filtre pour rechercher les csv plus facilement - stream en reel et appel de windows
 
 
-    Public Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
+    Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
 
 
         'Lire ou écrire dans un fichier avec la classe OpenFileDialog
