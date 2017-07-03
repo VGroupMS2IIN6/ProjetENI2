@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Application de création de comptes stagiaires - csv" Height="768" Width="1024">
 
-    
-    
+
+
     <Grid Margin="0,0,-20.667,-29.333">
 
         <!--Permet de définir une zone dans laquelle vous pouvez réoganiser des éléments enfants-->
@@ -47,8 +47,8 @@
                 </Button>
 
                 <!--Ceci représente le XAML pour le second bouton, la commande associé et les sous contenue associé, par exemple pour affiché le texte en surbrillance en gras, ect-->
-                <!--<Button Command="ApplicationCommands.Save">autre méthode-->
-                <Button Name="btnSave" Click="btnSave_Click">
+                <!--<Button Command="ApplicationCommands.Save">autre méthode   SURQUALITE-->
+                <!--<Button Name="btnSave" Click="btnSave_Click">
 
                     <Button.Content>
                         <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\save.jpg" Width="38" Height="47" RenderTransformOrigin="0.5,0.592" />
@@ -63,9 +63,10 @@
 
                         </StackPanel>
                     </Button.ToolTip>
-                </Button>
+                </Button>-->
 
 
+                <!--
                 <Separator />
                 <Separator />
                 <Separator />
@@ -126,22 +127,36 @@
                 <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
                 <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
 
-
+                -->
             </ToolBar>
 
-            
 
-            <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" Width="1028">
+
+            <!--<RichTextBox Name="rtbEditor" Width="344" Margin="0,168,0,0">
+                
+                
+                
                 <FlowDocument>
                     <Paragraph FontSize="36">Hello</Paragraph>
-                    <Paragraph FontStyle="Normal" TextAlignment="Left" FontSize="14" Foreground="Gray">Merci au V Group,
-                        Vous êtes par defaut en mode édition</Paragraph>
-                    </FlowDocument>
-            </RichTextBox>
+                    <Paragraph FontStyle="Normal" TextAlignment="Left" FontSize="14" Foreground="Gray">
+                        <Run Text="Merci au V Group, Veuillez importer un CSV"/>
+                    </Paragraph>
+
+                    <Paragraph FontStyle="Normal" TextAlignment="Left" FontSize="14" Foreground="Gray">
+                        <Run Text="Un mode création/édition de .csv peut être ajouté via une demande au V Group"/>
+                    </Paragraph>
 
 
+                </FlowDocument>
+                
+                
+            </RichTextBox>-->
 
+            <TextBox x:Name="testbox" Height="606" TextWrapping="Wrap" Text="Hello" FontSize="36"
 
+                VerticalAlignment="Top" Width="870" Margin="0,18,0,0"
+                     
+                    />
 
         </DockPanel>
 
