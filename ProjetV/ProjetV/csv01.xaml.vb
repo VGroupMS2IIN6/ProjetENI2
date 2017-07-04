@@ -111,7 +111,7 @@ Public Class csv01
             .Filter = "Power Shell Script(*.ps1)|*.ps1|All files (*.*)|*.*"
 
             'Ouvre la boite de dialogue
-            Dim result? As Boolean = dialogOpen.ShowDialog()
+            'Dim result? As Boolean = dialogOpen.ShowDialog()
 
 
 
@@ -121,7 +121,8 @@ Public Class csv01
 
 
             'Lancer le script avec le Load et le Run
-            If result = True Then
+            'If result = True Then
+            If dialogOpen.ShowDialog() = True Then
                 testbox.Text = RunScript(LoadScript("C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ps\Import.ps1"))
             End If
 
@@ -143,23 +144,26 @@ Public Class csv01
         saveFileDialog1.InitialDirectory = "C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\Export"
         saveFileDialog1.Title = "Save text Files"
         saveFileDialog1.FileName = "test"
-        saveFileDialog1.CheckFileExists = True
+        'saveFileDialog1.CheckFileExists = False
         saveFileDialog1.CheckPathExists = True
         saveFileDialog1.DefaultExt = ".csv"
         saveFileDialog1.Filter = "Comma separated value (*.csv)|*.csv|All files (*.*)|*.*"
         saveFileDialog1.RestoreDirectory = False
 
         ' Show save file dialog box
-        Dim result? As Boolean = saveFileDialog1.ShowDialog()
+        'Dim result? As Boolean = saveFileDialog1.ShowDialog()
 
         ' Process save file dialog box results
-        If saveFileDialog1.ShowDialog() = DialogResult Then
+        'If saveFileDialog1.ShowDialog() = DialogResult Then
+        If saveFileDialog1.ShowDialog() = True Then
             File.WriteAllText(saveFileDialog1.FileName, testbox.Text)
         End If
 
-        If result = True Then
-            testbox.Text = saveFileDialog1.FileName
-        End If
+        ' If result = True Then
+        ' testbox.Text = saveFileDialog1.FileName
+        'End If
+
+
     End Sub
 
 
