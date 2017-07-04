@@ -11,34 +11,71 @@ Imports System.Collections.ObjectModel
 
 Public Class csv01
 
+    ' Cette méthode ci dessous va nous permettre d'avoir un script PS en entrée et de le lancer puis de le convertir/formater au besoin
 
-    ' helper method that takes your script path, loads up the script 
-    ' into a variable, and passes the variable to the RunScript method 
-    ' that will then execute the contents 
+    Private Function RunScript(ByVal scriptText As String) As String
+
+        ' Creation d'un Powershell runspace 
+        Dim MyRunSpace As Runspace = RunspaceFactory.CreateRunspace()
+
+        ' Ouverture 
+        MyRunSpace.Open()
+
+        ' Creation d'un tunnel et renseigner le script en textbrut
+        Dim MyPipeline As Pipeline = MyRunSpace.CreatePipeline()
+
+        MyPipeline.Commands.AddScript(scriptText)
+
+        ' Formattage du Output 
+        MyPipeline.Commands.Add("Out-String")
+
+        ' Execution
+        Dim results As Collection(Of PSObject) = MyPipeline.Invoke()
+
+        ' Fermeture du runspace 
+        MyRunSpace.Close()
+
+        ' convertir le Output initialise une nouvelle instance de la classe Builder 
+        Dim MyStringBuilder As New StringBuilder()
+
+        For Each obj As PSObject In results
+            MyStringBuilder.AppendLine(obj.ToString())
+        Next
+
+        ' return le resultat of the script qui est convertie et formaté
+        Return MyStringBuilder.ToString()
+
+    End Function
+
+
+    'Cependant des améliorations sont possibles, maintenant nous allons ajouter un LoadScript method pour facilité l'utilisation des variables faisant appel au script.
+    ' Chargement du script au sein d'une variable, et lancer la variable à l'aide du RunScript
+    ' Cela va permettre d'excuter le contenu du script au sein de l'application ^^ 
+
+
     Private Function LoadScript(ByVal filename As String) As String
 
         Try
 
-            ' Create an instance of StreamReader to read from our file. 
-            ' The using statement also closes the StreamReader. 
+            ' Creation d'une instance StreamReader pour lire le fichier. 
+            ' Il est important de fermer le streamReader après utilisation - cf MSDN. 
             Dim sr As New StreamReader(filename)
 
-            ' use a string builder to get all our lines from the file 
+            ' Charger toutes les lignes du fichiers csv
             Dim fileContents As New StringBuilder()
 
             ' string to hold the current line 
             Dim curLine As String = ""
 
-            ' loop through our file and read each line into our 
-            ' stringbuilder as we go along 
+            ' Parcourir tout le fichier et charger chaque ligne dans le Builder
             Do
-                ' read each line and MAKE SURE YOU ADD BACK THE 
-                ' LINEFEED THAT IT THE ReadLine() METHOD STRIPS OFF 
+                ' Verification que toutes les lignes ont bien été lu et chargé    
+
                 curLine = sr.ReadLine()
                 fileContents.Append(curLine + vbCrLf)
             Loop Until curLine Is Nothing
 
-            ' close our reader now that we are done 
+            ' Fermeture du streamReader 
             sr.Close()
 
             ' call RunScript and pass in our file contents 
@@ -46,7 +83,7 @@ Public Class csv01
             Return fileContents.ToString()
 
         Catch e As Exception
-            ' Let the user know what went wrong. 
+            ' Gestion des erreurs. 
             Dim errorText As String = "The file could not be read:"
             errorText += e.Message + "\n"
             Return errorText
@@ -56,8 +93,7 @@ Public Class csv01
 
 
 
-
-    'Filtre pour rechercher les csv plus facilement - stream en reel et appel de windows
+    'Code Behind btnOpen - stream en reel et appel de windows
 
 
     Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
@@ -71,40 +107,26 @@ Public Class csv01
 
             'Nom de la fenêtre - Chemin d'accès et filtre pré établit
             .InitialDirectory = "C:\"
-            .Title = "veuillez choisir un fichier"
-            .Filter = "Script Windows PowerShell (*.ps1)|*.ps1|All files (*.*)|*.*"
+            .Title = "veuillez ouvrir un script PS"
+            .Filter = "Power Shell Script(*.ps1)|*.ps1|All files (*.*)|*.*"
 
             'Ouvre la boite de dialogue
             Dim result? As Boolean = dialogOpen.ShowDialog()
 
 
-            'Message et action de retour en cas d'erreur
-            ' If Err.Number = 32755 Then Exit Sub
-            'If Len(.FileName) = 0 Then Exit Sub
-
-
-            'File number peut être définit par la fonction Freefile  FreeFile permet de retourner un numéro libre (pour répérer un fichier on doit lui donner un integer) et l'action (No) permet de repérer sur quel fichier on travaille
-            'Pour ouvrir un fichier on utile donc FileOpen      FileOpen (FileNumber,FileName()peut être un path),Mode,Access(non obligatoire mais à tester dans notre cas),share(non obligatoire)
-            'Du coup on définit la fonction FreeFile avec l'action No puis on appel le fichier à ouvrir
-
-            'AUTRE METHODE A RETESTER
-            'Dim No As Integer
-            'Dim Line As String
-            'No = FreeFile()
-            'FileOpen(No, "C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ps", OpenMode.Input, OpenAccess.Read)
 
             'run our script and put the result into our textbox 
             'NOTE: A RETESTER AVEC le richtextbox
-
-
             'RichTextBoxStreamType.PlainText = LoadScript("C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ps\rentree26062017.csv")
+
+
+            'Lancer le script avec le Load et le Run
             If result = True Then
-                testbox.Text = LoadScript("C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ps\rentree26062017.csv")
+                testbox.Text = RunScript(LoadScript("C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ps\Import.ps1"))
             End If
 
-
-
         End With
+
 
     End Sub
 
@@ -113,39 +135,32 @@ Public Class csv01
 
 
     ' SURQUALITE
-    'Private Shared Sub btnSave_Click(ByVal sender As Object, ByVal e As ExecutedRoutedEventArgs) Handles btnSave.Click
-
-    'Controls.RichTextBox("C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\upload\", RichTextBoxStreamType.UnicodePlainText)
-
-    ' Create a SaveFileDialog to request a path and file name to save to.
+    Private Sub btnSave_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSave.Click
 
 
+        ' Configure save file dialog box
+        Dim saveFileDialog1 As New Microsoft.Win32.SaveFileDialog
+        saveFileDialog1.InitialDirectory = "C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\Export"
+        saveFileDialog1.Title = "Save text Files"
+        saveFileDialog1.FileName = "test"
+        saveFileDialog1.CheckFileExists = True
+        saveFileDialog1.CheckPathExists = True
+        saveFileDialog1.DefaultExt = ".csv"
+        saveFileDialog1.Filter = "Comma separated value (*.csv)|*.csv|All files (*.*)|*.*"
+        saveFileDialog1.RestoreDirectory = False
 
+        ' Show save file dialog box
+        Dim result? As Boolean = saveFileDialog1.ShowDialog()
 
-    'Dim saveFile As New Microsoft.Win32.SaveFileDialog()
+        ' Process save file dialog box results
+        If saveFileDialog1.ShowDialog() = DialogResult Then
+            File.WriteAllText(saveFileDialog1.FileName, testbox.Text)
+        End If
 
-    'Dim Form As New RichTextBox
-
-
-    ' Initialize the SaveFileDialog to specify the CSV extention for the file.
-    '   saveFile.DefaultExt = "*.csv"
-    '  saveFile.Filter = "Comma Separated Value|*.csv"
-
-    ' Determine whether the user selected a file name from the saveFileDialog.
-    'If (saveFile.ShowDialog() = Forms.DialogResult.OK) _
-    '       And (saveFile.FileName.Length > 0) Then
-    '
-    '      ' Save the contents of the RichTextBox into the file.
-    '     Form.SaveFile(saveFile.FileName,
-    '                  RichTextBoxStreamType.RichText)
-
-    'End If
-
-    'End Sub
-
-
-
-
+        If result = True Then
+            testbox.Text = saveFileDialog1.FileName
+        End If
+    End Sub
 
 
 
