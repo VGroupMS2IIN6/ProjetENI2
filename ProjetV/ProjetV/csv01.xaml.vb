@@ -8,8 +8,8 @@ Imports System.Management.Automation.Runspaces
 Imports System.Collections.ObjectModel
 
 
-
 Public Class csv01
+
 
     ' Cette méthode ci dessous va nous permettre d'avoir un script PS en entrée et de le lancer puis de le convertir/formater au besoin
 
@@ -96,7 +96,7 @@ Public Class csv01
     'Code Behind btnOpen - stream en reel et appel de windows
 
 
-    Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
+    Private Sub btncsv_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btncsv.Click
 
 
         'Lire ou écrire dans un fichier avec la classe OpenFileDialog
@@ -122,8 +122,12 @@ Public Class csv01
 
             'Lancer le script avec le Load et le Run
             'If result = True Then
+
             If dialogOpen.ShowDialog() = True Then
-                testbox.Text = RunScript(LoadScript("C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ps\Import.ps1"))
+                textBoxcsv.Text = RunScript(LoadScript("C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ps\Import.ps1"))
+
+
+
             End If
 
         End With
@@ -133,38 +137,45 @@ Public Class csv01
 
 
 
+    Private Sub buttoncsv11_Click(sender As Object, e As RoutedEventArgs) Handles buttoncsv11.Click
+        Dim csv02 As New csv02
+        Hide()
+        csv02.Show()
+    End Sub
+
+
 
 
     ' SURQUALITE
-    Private Sub btnSave_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSave.Click
+    'Private Sub btncsv_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btncsv.Click
 
 
-        ' Configure save file dialog box
-        Dim saveFileDialog1 As New Microsoft.Win32.SaveFileDialog
-        saveFileDialog1.InitialDirectory = "C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\Export"
-        saveFileDialog1.Title = "Save text Files"
-        saveFileDialog1.FileName = "test"
-        'saveFileDialog1.CheckFileExists = False
-        saveFileDialog1.CheckPathExists = True
-        saveFileDialog1.DefaultExt = ".csv"
-        saveFileDialog1.Filter = "Comma separated value (*.csv)|*.csv|All files (*.*)|*.*"
-        saveFileDialog1.RestoreDirectory = False
+    ' Configure save file dialog box
+    ' Dim saveFileDialog1 As New Microsoft.Win32.SaveFileDialog
+    '  saveFileDialog1.InitialDirectory = "C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\Export"
+    '   saveFileDialog1.Title = "Save text Files"
+    'saveFileDialog1.FileName = "test"
+    'saveFileDialog1.CheckFileExists = False
+    ' saveFileDialog1.CheckPathExists = True
+    '  saveFileDialog1.DefaultExt = ".csv"
+    '   saveFileDialog1.Filter = "Comma separated value (*.csv)|*.csv|All files (*.*)|*.*"
+    '    saveFileDialog1.RestoreDirectory = False
 
-        ' Show save file dialog box
-        'Dim result? As Boolean = saveFileDialog1.ShowDialog()
+    ' Show save file dialog box
+    'Dim result? As Boolean = saveFileDialog1.ShowDialog()
 
-        ' Process save file dialog box results
-        'If saveFileDialog1.ShowDialog() = DialogResult Then
-        If saveFileDialog1.ShowDialog() = True Then
-            File.WriteAllText(saveFileDialog1.FileName, testbox.Text)
-        End If
+    ' Process save file dialog box results
+    'If saveFileDialog1.ShowDialog() = DialogResult Then
+    '  If saveFileDialog1.ShowDialog() = True Then
+    '       File.WriteAllText(saveFileDialog1.FileName, textBoxcsv.Text)
+    '    End If
 
-        ' If result = True Then
-        ' testbox.Text = saveFileDialog1.FileName
-        'End If
+    ' If result = True Then
+    ' testbox.Text = saveFileDialog1.FileName
+    'End If
 
 
-    End Sub
+    '    End Sub
 
 
 

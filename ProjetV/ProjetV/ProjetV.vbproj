@@ -114,6 +114,9 @@
     <Compile Include="mdpadmin.xaml.vb">
       <DependentUpon>mdpadmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="csv02.xaml.vb">
+      <DependentUpon>csv02.xaml</DependentUpon>
+    </Compile>
     <Page Include="01AccueilAdmin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="mdpadmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="csv02.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

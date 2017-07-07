@@ -5,40 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetV"
         mc:Ignorable="d"
-        Title="Application de création de comptes stagiaires - csv" Height="768" Width="1024">
+        Title="Application de création de comptes stagiaires - csv" FontWeight="Bold" FontSize="16" Height="768" Width="1024">
 
 
 
-    <Grid Margin="0,0,-20.667,-29.333">
+    <Grid Margin="0,0,3.333,2.667">
+        <Label x:Name="labelcsv" Content="Fichier à importer" FontWeight="Bold" HorizontalAlignment="Left" Margin="331,326,0,0" VerticalAlignment="Top" Height="35" Width="149"/>
+        <TextBox x:Name="textBoxcsv" HorizontalAlignment="Left" Height="35" Margin="495,324,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+        <Button x:Name="btncsv" Content="Parcourir..." HorizontalAlignment="Left" Margin="651,324,0,0" VerticalAlignment="Top" Width="128" Height="34"/>
 
-        <!--Permet de définir une zone dans laquelle vous pouvez réoganiser des éléments enfants-->
-        <DockPanel>
+        <StackPanel>
+            <TextBlock FontWeight="Bold" FontSize="25" Margin="0,10,10,5">Création de compte stagiaire (CSV)</TextBlock>
+            <Separator></Separator>
+            <Separator></Separator>
+            <TextBlock Margin="50,10,29,40">Importer le fichier CSV provenant du CRM de l'ENI</TextBlock>
+        </StackPanel>
+        
+                <Button x:Name="buttoncsv10" Content="Annuler" Margin="58,650,842,53"/>
+            <Button x:Name="buttoncsv11" Content="Suivant" Margin="847,646,39,54"/>
+        
 
 
-            <!--Ceci représente la toolbar-->
+    </Grid>
+
+    <!--  <DockPanel>
+
+
+            
             <ToolBar DockPanel.Dock="Top" Margin="0,0,10,0">
 
 
-                <!--Ceci représente le XAML pour le premier bouton, la commande associé et les sous contenue associé, par exemple pour affiché le texte en surbrillance en gras, ect-->
-                <!--<Button Name="btnOpen" Click="btnOpen_Click">autre methode-->
-                <Button Name="btnOpen" Click="btnOpen_Click" Margin="0,2,0,2.333" VerticalAlignment="Stretch">
-                    <Button.Content>
-                        <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\folder.png" Width="35" Height="43" RenderTransformOrigin="0.5,0.593" />
-                    </Button.Content>
-                    <Button.ToolTip>
-                        <!--L'avantage du ToolType property, c'est que c'est un type d'objet donc on peut mettre ce que l'on veut à l'intérieur...attention par par contre à utiliser cette propriété comme objet du boutton et non pas comme propriété CAR il ne peut exister plusieurs propriété ToolTip dans un DockPanal...Bref...-->
+                
                         <StackPanel>
-                            <!--StackPanel permet de réorganiser des éléments enfants sur une seule ligne, ici les éléments de stackPanel seront affichés en surbrillance en passant la souris par dessus-->
-                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Recherche</TextBlock>
-                            <TextBlock>
-                                     Rechercher sur votre ordinateur ou sur le réseau
-                                          <LineBreak /> <!--Ceci permet de créer un saut de ligne-->
-                                     Choisissez un .csv pour le modifier et/ou l'utiliser
+                           
+                            
+                                    
                             </TextBlock>
-                            <!--Ceci permet de créer un séparateur-->
+                            
                             <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
                             <WrapPanel>
-                                <!--Positionne les éléments enfant selon un ordre séquentiels...Par defaut de gauche à droite et envoyant à la ligne suivant...L'utilisation de la propriété orientation est possible aussi-->
+                                
                                 <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\help.png" Width="60" Height="40" />
                                 <TextBlock FontStyle="Italic">Press F1 plus d'aide Ou contactez Eric Persan sur son portable Naaaah it's juste a joke =)</TextBlock>
                             </WrapPanel>
@@ -46,8 +52,7 @@
                     </Button.ToolTip>
                 </Button>
 
-                <!--Ceci représente le XAML pour le second bouton, la commande associé et les sous contenue associé, par exemple pour affiché le texte en surbrillance en gras, ect-->
-                <!--<Button Command="ApplicationCommands.Save">autre méthode   SURQUALITE-->
+                
                 <Button Name="btnSave" Click="btnSave_Click">
 
                     <Button.Content>
@@ -66,81 +71,19 @@
                 </Button>
 
 
-                <!--
-                <Separator />
-                <Separator />
-                <Separator />
 
-
-
-                
-                    <Button Name="btnBold" Click="btnBold_Click">
-                        <Button.Content>
-                            <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\bold.png" Width="35" Height="43" />
-                        </Button.Content>
-                        <Button.ToolTip>
-                            <StackPanel>
-                            <TextBlock>
-                                    Mettre en gras
-                            </TextBlock>
-                        </StackPanel>
-                        </Button.ToolTip>
-                    </Button>
-                            
-                
-                    <Button Name="btnItalic" Click="btnItalic_Click">
-                        <Button.Content>
-                            <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\italic.png" Width="35" Height="43" />
-                        </Button.Content>
-                        <Button.ToolTip>
-                            <StackPanel>
-                                <TextBlock>
-                                    Mettre en italic
-                                </TextBlock>
-
-                            </StackPanel>
-                        </Button.ToolTip>
-                    </Button>
-                
-                
-                    <Button Name="btnUnderline" Click="btnUnderline_Click">
-                        <Button.Content>
-                            <Image Source="C:\Users\Olivier  - SP3\Documents\Visual Studio 2015\ProjetENI2\ProjetV\ProjetV\img\Underline.png" Width="35" Height="43" />
-                        </Button.Content>
-                        <Button.ToolTip>
-                            <StackPanel>
-                                <TextBlock>
-                                    Souligné
-                                </TextBlock>
-
-                            </StackPanel>
-                        </Button.ToolTip>
-                    </Button>
-                 
-
-
-                <Separator />
-                <Separator />
-                <Separator />
-
-
-                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
-                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
-
-                -->
             </ToolBar>
 
 
 
             <TextBox x:Name="testbox" Height="703" TextWrapping="Wrap" Text="Hello" FontSize="36"
 
-                VerticalAlignment="Top" Width="1038" Margin="0,-3,0,0" RenderTransformOrigin="0.489,0.531"
-                     
-                    />
+                VerticalAlignment="Top" Width="1038" Margin="0,-3,0,0" RenderTransformOrigin="0.489,0.531"/>
 
-        </DockPanel>
+            
+        </DockPanel>-->
 
-    </Grid>
+
 </Window>
 
 
