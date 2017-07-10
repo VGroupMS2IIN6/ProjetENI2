@@ -25,7 +25,7 @@
         <Button x:Name="buttoncsv22" Content="Suivant" Margin="835,618,51,72"/>
         <Label x:Name="labelcsv20" Content="Formation :" FontWeight="Bold" HorizontalAlignment="Left" Margin="335,300,0,0" VerticalAlignment="Top" Height="35" Width="112"/>
         <Label x:Name="labelcsv21" Content="Campus :" FontWeight="Bold" HorizontalAlignment="Left" Margin="353,441,0,0" VerticalAlignment="Top" Height="35" Width="84"/>
-        <Button x:Name="sw_select" Content="Verification" Margin="749,385,151,303"/>
+        <Button x:Name="buttoncsv23" Content="Verification" Margin="715,383,198,306"/>
 
 
 

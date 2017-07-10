@@ -111,6 +111,9 @@
     <Compile Include="csv01.xaml.vb">
       <DependentUpon>csv01.xaml</DependentUpon>
     </Compile>
+    <Compile Include="csv03.xaml.vb">
+      <DependentUpon>csv03.xaml</DependentUpon>
+    </Compile>
     <Compile Include="mdpadmin.xaml.vb">
       <DependentUpon>mdpadmin.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="csv01.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="csv03.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

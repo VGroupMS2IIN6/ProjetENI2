@@ -33,4 +33,4 @@
     End Sub
 End Class
 
-
+' How to read the last logs

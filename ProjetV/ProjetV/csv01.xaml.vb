@@ -144,8 +144,6 @@ Public Class csv01
     End Sub
 
 
-
-
     ' SURQUALITE
     'Private Sub btncsv_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btncsv.Click
 
