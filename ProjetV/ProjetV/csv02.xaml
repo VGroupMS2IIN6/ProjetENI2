@@ -31,29 +31,25 @@
 
 
         <ListBox x:Name="ListBox1" Margin="449,276,363,0" VerticalAlignment="Top" RenderTransformOrigin="0.428,0.45" Height="107">
-            <TextBlock Text="DL" />
+            <!--<TextBlock Text="DL" />
             <TextBlock Text="T2SI" />
             <TextBlock Text="TSRIT" />
             <TextBlock Text="L3_Informatique" />
             <TextBlock Text="ASR" />
             <TextBlock Text="CDI" />
             <TextBlock Text="MS2I_IN" />
-            <TextBlock Text="MS2I_SI" />
+            <TextBlock Text="MS2I_SI" />-->
         </ListBox>
 
 
         <ListBox x:Name="ListBox2" Margin="449,416,363,0" VerticalAlignment="Top" RenderTransformOrigin="0.428,0.45" Height="84">
             
-                <TextBlock Text="Rennes" />
-               <TextBlock Text="Nantes" />
-            <TextBlock Text="Niort" />
+            <!--<TextBlock Text="Rennes" />
+            <TextBlock Text="Nantes" />
+            <TextBlock Text="Niort" />-->
             
         </ListBox>
-                  
-
-            
-
-
+ 
 
     </Grid>
 </Window>
